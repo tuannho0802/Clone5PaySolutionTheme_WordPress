@@ -9,10 +9,10 @@ Text Domain: fivepay-clone
 
 :root {
   /* Colors */
-  --color-primary: #003366; /* Navy Blue inferred from "Forex/Corporate" */
-  --color-secondary: #00d2ff; /* Cyan/Light Blue for accents */
-  --color-text-main: #333333;
-  --color-text-light: #666666;
+  --color-primary: #1F5DAE; /* Updated per design.html */
+  --color-secondary: #222222; /* Updated per design.html */
+  --color-text-main: #7A7A7A; /* Updated per design.html */
+  --color-text-light: #7A7A7A;
   --color-white: #ffffff;
   --color-light-bg: #f9f9f9;
   --color-border: #e0e0e0;
@@ -20,10 +20,10 @@ Text Domain: fivepay-clone
 
   /* Typography */
   --font-main:
-    "Inter", system-ui, -apple-system,
+    "Arimo", "Inter", system-ui, -apple-system,
     sans-serif;
   --font-heading:
-    "Inter", system-ui, -apple-system,
+    "Arimo", "Inter", system-ui, -apple-system,
     sans-serif;
 
   /* Spacing */
@@ -35,7 +35,7 @@ Text Domain: fivepay-clone
   --spacing-xxl: 80px;
 
   /* Container */
-  --container-width: 1200px;
+  --container-width: 1254px; /* Updated per design.html */
   --header-height: 80px;
 }
 

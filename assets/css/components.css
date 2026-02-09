@@ -3,12 +3,13 @@
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 12px 28px;
+    padding: 17px 45px; /* Updated per design.html */
     border-radius: 4px;
     font-weight: 600;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-size: 16px;
 }
 
 .btn-primary {
@@ -18,19 +19,23 @@
 }
 
 .btn-primary:hover {
-    background-color: transparent;
-    color: var(--color-primary);
+    background-color: #004080; /* Slightly lighter navy for hover state */
+    border-color: #004080;
+    color: var(--color-white);
+    transform: translateY(-2px); /* Subtle lift */
+    box-shadow: 0 4px 15px rgba(0,51,102,0.3);
 }
 
 .btn-outline {
     background-color: transparent;
     color: var(--color-primary);
-    border: 2px solid var(--color-primary);
+    border: 1px solid var(--color-primary); /* Thin border as requested */
 }
 
 .btn-outline:hover {
     background-color: var(--color-primary);
     color: var(--color-white);
+    border-color: var(--color-primary);
 }
 
 /* Cards */
@@ -93,9 +98,9 @@
 /* Zig Zag Layout (Image/Text) */
 .zigzag-section {
     display: flex;
-    align-items: center;
-    gap: 100px; /* Increased gap */
-    margin-bottom: 100px; /* Increased margin */
+    align-items: center; /* Center vertically as requested */
+    gap: 80px; /* Gap 80px as requested */
+    margin-bottom: 120px; /* Increased margin */
 }
 
 .zigzag-section.reverse {
@@ -106,77 +111,147 @@
     flex: 1;
 }
 
+.zigzag-content h3 {
+    font-size: 32px;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.zigzag-content p {
+    color: var(--color-text-light);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.zigzag-content ul {
+    margin-bottom: 30px;
+    color: var(--color-text-light);
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+}
+
+.zigzag-content li {
+    margin-bottom: 10px;
+}
+
 .zigzag-image {
     flex: 1;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Soft shadow as requested */
 }
 
-.zigzag-image img {
+.zigzag-image img, .zigzag-image svg {
     width: 100%;
     height: auto;
     object-fit: cover;
+    display: block;
+}
+
+/* Feature Item (Why Us) */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.feature-item {
+    border: 1px solid #eee; /* Thin gray border */
+    border-radius: 10px; /* Updated per design.html */
+    padding: 30px;
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.05); /* Updated per design.html */
+}
+
+.feature-item:hover {
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0px 12px 25px 0px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    margin-bottom: 15px;
+}
+
+.feature-item h4 {
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    font-size: 18px; /* Assuming a reasonable size */
+}
+
+.feature-item p {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.6;
 }
 
 @media (max-width: 768px) {
     .zigzag-section, .zigzag-section.reverse {
         flex-direction: column;
-        gap: 30px;
+        gap: 40px;
     }
 }
 
-/* Bank Grid */
-.bank-grid-container {
+/* Bank Grid - Global Styles from Pattern */
+.fpay-bank-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    overflow: hidden;
+    gap: 20px;
+    width: 100%;
 }
 
-.bank-col {
+.fpay-bank-col {
     background: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 100%; /* Ensure equal height */
 }
 
-.bank-col:not(:last-child) {
-    border-right: 1px solid var(--color-border);
-}
-
-.bank-header {
-    padding: 15px;
-    text-align: center;
+.fpay-bank-header {
+    padding: 12px;
     font-weight: 700;
+    text-align: center;
     color: #fff;
     text-transform: uppercase;
     font-size: 14px;
 }
 
-.bank-header.yellow { background-color: #FFC107; color: #333; }
-.bank-header.blue { background-color: #003366; }
-.bank-header.red { background-color: #DC3545; }
-.bank-header.navy { background-color: #001F3F; }
+.fpay-bank-header.yellow { background-color: #ffc107; color: #000; }
+.fpay-bank-header.blue { background-color: #003366; }
+.fpay-bank-header.red { background-color: #dc3545; }
+.fpay-bank-header.navy { background-color: #0a192f; }
 
-.bank-list {
-    padding: 20px;
-    min-height: 200px;
+.fpay-bank-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.bank-list li {
-    margin-bottom: 10px;
-    font-size: 14px;
-    color: var(--color-text-light);
+.fpay-bank-list li {
+    padding: 10px 15px; /* Padding as requested */
+    border-bottom: 1px solid #eee;
     display: flex;
     align-items: center;
+    font-size: 14px; /* Font size 14px */
+    color: #333;
+    line-height: 1.5;
+}
+
+.fpay-bank-list li:last-child { border-bottom: none; }
+
+.fpay-bank-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-width: 768px) {
-    .bank-grid-container {
+    .fpay-bank-grid {
         grid-template-columns: 1fr;
-    }
-    .bank-col:not(:last-child) {
-        border-right: none;
-        border-bottom: 1px solid var(--color-border);
     }
 }
 
@@ -187,7 +262,7 @@
 }
 
 .faq-item {
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid #eee; /* Thin bottom border as requested */
 }
 
 .faq-question {
@@ -201,13 +276,19 @@
 }
 
 .faq-question::after {
-    content: '+';
-    font-size: 20px;
-    transition: transform 0.3s;
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+    transform: rotate(45deg); /* Arrow pointing down */
+    transition: transform 0.3s ease;
+    margin-left: 10px;
 }
 
 .faq-item.active .faq-question::after {
-    transform: rotate(45deg);
+    transform: rotate(225deg); /* Arrow pointing up (45 + 180) */
 }
 
 .faq-answer {

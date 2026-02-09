@@ -67,7 +67,7 @@
                 <ul>
                     <li><a href="<?php echo home_url('/'); ?>">Home</a></li>
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#" class="btn btn-primary btn-sm mobile-cta">Contact Us</a></li>
+                    <li><a href="/contact" class="btn btn-primary btn-sm mobile-cta">Contact Us</a></li>
                 </ul>
             <?php endif; ?>
         </nav><!-- #site-navigation -->

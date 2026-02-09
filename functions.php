@@ -30,6 +30,12 @@ if ( ! function_exists( 'fivepay_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'fivepay_setup' );
 
+add_action('wp_head', function () {
+    if (is_page()) {
+        echo '<style>.entry-title, .post-title, .page-header { display: none !important; }</style>';
+    }
+});
+
 /**
  * Register Patterns Manually
  */
@@ -40,6 +46,10 @@ function fivepay_register_patterns()
         '5pay-theme',
         array('label' => __('5Pay Theme', 'fivepay'))
     );
+    register_block_pattern_category(
+        '5pay-contact',
+        array('label' => __('5Pay Theme - Contact', 'fivepay'))
+    );
 
     // 2. Register Patterns Manually
     $patterns = array(
@@ -47,6 +57,30 @@ function fivepay_register_patterns()
             'title' => __('Hero Section', 'fivepay'),
             'slug' => 'fivepay-v5/hero',
             'file' => 'hero.php'
+        ),
+        'contact-hero' => array(
+            'title' => __('Contact Hero', 'fivepay'),
+            'slug' => 'fivepay/contact-hero',
+            'file' => 'contact-hero.php',
+            'cat' => '5pay-contact'
+        ),
+        'contact-info' => array(
+            'title' => __('Contact Info Grid', 'fivepay'),
+            'slug' => 'fivepay/contact-info',
+            'file' => 'contact-info.php',
+            'cat' => '5pay-contact'
+        ),
+        'contact-form' => array(
+            'title' => __('Contact Form Wrapper', 'fivepay'),
+            'slug' => 'fivepay/contact-form',
+            'file' => 'contact-form.php',
+            'cat' => '5pay-contact'
+        ),
+        'contact-map' => array(
+            'title' => __('Office Map', 'fivepay'),
+            'slug' => 'fivepay/contact-map',
+            'file' => 'contact-map.php',
+            'cat' => '5pay-contact'
         ),
         'banks' => array(
             'title' => __('Supported Banks Grid', 'fivepay'),
@@ -85,7 +119,7 @@ function fivepay_register_patterns()
             $pattern['slug'],
             array(
                 'title' => $pattern['title'],
-                'categories' => array('5pay-theme'),
+                'categories' => array(isset($pattern['cat']) ? $pattern['cat'] : '5pay-theme'),
                 'content' => $content,
             )
         );
@@ -143,6 +177,9 @@ function fivepay_scripts() {
 
     // Main Theme Stylesheet
     wp_enqueue_style( 'fivepay-style', get_stylesheet_uri(), array('fivepay-components'), '1.0.0' );
+
+    // Contact Page Styles
+    wp_enqueue_style('fivepay-contact', get_template_directory_uri() . '/assets/css/contact.css', array('fivepay-style'), '1.0.0');
 
     // Scripts
     wp_enqueue_script('fivepay-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '1.0.0', true);

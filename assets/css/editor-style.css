@@ -1,16 +1,7 @@
-/*
-Theme Name: FivePay Clone
-Theme URI: https://5paysolution.com/
-Author: Trae AI
-Description: A custom lightweight theme cloning 5Pay Solution.
-Version: 1.0
-Text Domain: fivepay-clone
-*/
-
 :root {
   /* Colors */
-  --color-primary: #003366; /* Navy Blue inferred from "Forex/Corporate" */
-  --color-secondary: #00d2ff; /* Cyan/Light Blue for accents */
+  --color-primary: #003366;
+  --color-secondary: #00d2ff;
   --color-text-main: #333333;
   --color-text-light: #666666;
   --color-white: #ffffff;
@@ -33,10 +24,6 @@ Text Domain: fivepay-clone
   --spacing-lg: 24px;
   --spacing-xl: 32px;
   --spacing-xxl: 80px;
-
-  /* Container */
-  --container-width: 1200px;
-  --header-height: 80px;
 }
 
 body {
@@ -44,4 +31,26 @@ body {
   color: var(--color-text-main);
   line-height: 1.6;
   background-color: var(--color-white);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
 }

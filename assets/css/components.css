@@ -48,21 +48,177 @@
 
 /* Section Common */
 .section {
-    padding: var(--spacing-xxl) 0;
+    padding: 100px 0; /* Adjusted for better spacing */
 }
 
 .section-header {
     text-align: center;
     max-width: 800px;
-    margin: 0 auto var(--spacing-xl);
+    margin: 0 auto 60px; /* Adjusted margin */
 }
 
 .section-title {
     font-size: 36px;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 20px;
 }
 
 .section-subtitle {
     color: var(--color-text-light);
     font-size: 18px;
+}
+
+/* Partner Logos */
+.partner-strip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 80px; /* Increased gap to match design */
+    padding: 40px 0;
+}
+
+.partner-logo {
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    max-height: 40px;
+    width: auto;
+}
+
+.partner-logo:hover {
+    filter: none;
+    opacity: 1;
+}
+
+/* Zig Zag Layout (Image/Text) */
+.zigzag-section {
+    display: flex;
+    align-items: center;
+    gap: 100px; /* Increased gap */
+    margin-bottom: 100px; /* Increased margin */
+}
+
+.zigzag-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.zigzag-content {
+    flex: 1;
+}
+
+.zigzag-image {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.zigzag-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .zigzag-section, .zigzag-section.reverse {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* Bank Grid */
+.bank-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.bank-col {
+    background: #fff;
+}
+
+.bank-col:not(:last-child) {
+    border-right: 1px solid var(--color-border);
+}
+
+.bank-header {
+    padding: 15px;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.bank-header.yellow { background-color: #FFC107; color: #333; }
+.bank-header.blue { background-color: #003366; }
+.bank-header.red { background-color: #DC3545; }
+.bank-header.navy { background-color: #001F3F; }
+
+.bank-list {
+    padding: 20px;
+    min-height: 200px;
+}
+
+.bank-list li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--color-text-light);
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .bank-grid-container {
+        grid-template-columns: 1fr;
+    }
+    .bank-col:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+    }
+}
+
+/* FAQ Accordion */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.faq-question {
+    padding: 20px 0;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.faq-item.active .faq-question::after {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px; /* Approximate max height */
+    padding-bottom: 20px;
 }

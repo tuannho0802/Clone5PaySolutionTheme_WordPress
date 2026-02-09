@@ -31,16 +31,62 @@ endif;
 add_action( 'after_setup_theme', 'fivepay_setup' );
 
 /**
- * Register Pattern Categories
+ * Register Patterns Manually
  */
-function fivepay_register_pattern_categories()
+function fivepay_register_patterns()
 {
+    // 1. Register Category
     register_block_pattern_category(
         '5pay-theme',
-        array('label' => __('5Pay Theme', 'fivepay-clone'))
+        array('label' => __('5Pay Theme', 'fivepay'))
     );
+
+    // 2. Register Patterns Manually
+    $patterns = array(
+        'hero' => array(
+            'title' => __('Hero Section', 'fivepay'),
+            'slug' => 'fivepay/hero-section',
+            'file' => 'hero.php'
+        ),
+        'banks' => array(
+            'title' => __('Supported Banks Grid', 'fivepay'),
+            'slug' => 'fivepay/supported-banks',
+            'file' => 'banks.php'
+        ),
+        'partners' => array(
+            'title' => __('Partners Strip', 'fivepay'),
+            'slug' => 'fivepay/partners-strip',
+            'file' => 'partners.php'
+        ),
+        'solutions' => array(
+            'title' => __('Solutions Zig-Zag', 'fivepay'),
+            'slug' => 'fivepay/solutions-zigzag',
+            'file' => 'solutions.php'
+        ),
+        'why-us' => array(
+            'title' => __('Why Us Grid', 'fivepay'),
+            'slug' => 'fivepay/why-us-grid',
+            'file' => 'why-us.php'
+        ),
+        'faq' => array(
+            'title' => __('FAQ Accordion', 'fivepay'),
+            'slug' => 'fivepay/faq-accordion',
+            'file' => 'faq.php'
+        ),
+    );
+
+    foreach ($patterns as $pattern) {
+        register_block_pattern(
+            $pattern['slug'],
+            array(
+                'title' => $pattern['title'],
+                'categories' => array('5pay-theme'),
+                'content' => file_get_contents(get_template_directory() . '/patterns/' . $pattern['file']),
+            )
+        );
+    }
 }
-add_action('init', 'fivepay_register_pattern_categories');
+add_action('init', 'fivepay_register_patterns');
 
 /**
  * Enqueue scripts and styles.

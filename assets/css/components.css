@@ -288,18 +288,22 @@
 }
 
 .faq-item.active .faq-question::after {
-    transform: rotate(225deg); /* Arrow pointing up (45 + 180) */
+    transform: rotate(225deg); /* Arrow pointing up */
 }
 
 .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    display: none;
     color: var(--color-text-light);
     line-height: 1.6;
 }
 
 .faq-item.active .faq-answer {
-    max-height: 300px; /* Approximate max height */
+    display: block;
     padding-bottom: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
 }

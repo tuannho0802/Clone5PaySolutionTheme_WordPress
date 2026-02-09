@@ -45,7 +45,7 @@ function fivepay_register_patterns()
     $patterns = array(
         'hero' => array(
             'title' => __('Hero Section', 'fivepay'),
-            'slug' => 'fivepay/hero-section',
+            'slug' => 'fivepay-v5/hero',
             'file' => 'hero.php'
         ),
         'banks' => array(
@@ -60,7 +60,7 @@ function fivepay_register_patterns()
         ),
         'solutions' => array(
             'title' => __('Solutions Zig-Zag', 'fivepay'),
-            'slug' => 'fivepay/solutions-zigzag',
+            'slug' => 'fivepay-v5/solutions',
             'file' => 'solutions.php'
         ),
         'why-us' => array(
@@ -76,17 +76,54 @@ function fivepay_register_patterns()
     );
 
     foreach ($patterns as $pattern) {
+        $content = file_get_contents(get_template_directory() . '/patterns/' . $pattern['file']);
+
+        // Auto-fix: Remove extra whitespaces between block comments and HTML tags to prevent validation errors
+        $content = preg_replace('/-->\s+</', '--><', $content);
+
         register_block_pattern(
             $pattern['slug'],
             array(
                 'title' => $pattern['title'],
                 'categories' => array('5pay-theme'),
-                'content' => file_get_contents(get_template_directory() . '/patterns/' . $pattern['file']),
+                'content' => $content,
             )
         );
     }
 }
 add_action('init', 'fivepay_register_patterns');
+
+/**
+ * Unregister Old Patterns (Cleanup)
+ */
+function fivepay_unregister_old_patterns()
+{
+    $old_slugs = array(
+        'fivepay/hero-section',
+        'fivepay/solutions-zigzag',
+        'fivepay-v1/hero',
+        'fivepay-v2/hero',
+        'fivepay-v3/hero',
+        'fivepay-v4/hero',
+        'fivepay-v1/solutions',
+        'fivepay-v2/solutions',
+        'fivepay-v3/solutions',
+        'fivepay-v4/solutions',
+        'fivepay-v1/hero-section',
+        'fivepay-v2/hero-section',
+        'fivepay-v3/hero-section',
+        'fivepay-v1/solutions-zigzag',
+        'fivepay-v2/solutions-zigzag',
+        'fivepay-v3/solutions-zigzag',
+    );
+
+    foreach ($old_slugs as $slug) {
+        if (WP_Block_Patterns_Registry::get_instance()->is_registered($slug)) {
+            unregister_block_pattern($slug);
+        }
+    }
+}
+add_action('init', 'fivepay_unregister_old_patterns', 15);
 
 /**
  * Enqueue scripts and styles.

@@ -9,7 +9,7 @@ get_header();
 <main id="primary" class="site-main">
 
     <!-- Simple Page Header -->
-    <div class="page-header-container" style="background-color: var(--color-light-bg); padding: 60px 0 40px;">
+    <div class="page-header-container" style="background-color: var(--color-light-bg);">
         <div class="container">
             <?php the_title( '<h1 class="entry-title" style="margin-bottom: 0;">', '</h1>' ); ?>
         </div>

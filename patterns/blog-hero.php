@@ -1,13 +1,13 @@
 <?php
 /**
  * Title: Blog Hero Section
- * Slug: fpay/blog-hero
- * Categories: fpay-sections
+ * Slug: fivepay/blog-hero
+ * Categories: 5pay-blog
  * Keywords: blog, hero, title, header
  */
 ?>
-<!-- wp:cover {"url":"https://placehold.co/1920x600/020c1b/ffffff","dimRatio":60,"overlayColor":"black","align":"full","minHeight":400,"minHeightUnit":"px","className":"blog-hero-banner","layout":{"type":"constrained"}} -->
-<div class="wp-block-cover alignfull blog-hero-banner has-black-background-color has-background-dim-60 has-background-dim" style="min-height:400px"><span aria-hidden="true" class="wp-block-cover__background has-black-background-color has-background-dim-60 has-background-dim"></span><img class="wp-block-cover__image-background" src="https://placehold.co/1920x600/020c1b/ffffff" alt="Blog Hero Background" data-object-fit="cover"/>
+<!-- wp:cover {"url":"https://placehold.co/1920x600/020c1b/ffffff","dimRatio":60,"overlayColor":"black","align":"full","minHeight":480,"minHeightUnit":"px","className":"blog-hero-banner force-full-width","layout":{"type":"constrained"},"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
+<div class="wp-block-cover alignfull blog-hero-banner force-full-width has-black-background-color has-background-dim-60 has-background-dim" style="min-height:480px;margin-top:0;margin-bottom:0"><span aria-hidden="true" class="wp-block-cover__background has-black-background-color has-background-dim-60 has-background-dim"></span><img class="wp-block-cover__image-background" src="https://placehold.co/1920x600/020c1b/ffffff" alt="Blog Hero Background" data-object-fit="cover"/>
     <div class="wp-block-cover__inner-container">
         <!-- wp:group {"className":"blog-hero-content animate-on-scroll","layout":{"type":"constrained"}} -->
         <div class="wp-block-group blog-hero-content animate-on-scroll">

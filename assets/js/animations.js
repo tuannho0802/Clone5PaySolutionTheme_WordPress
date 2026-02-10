@@ -49,46 +49,55 @@ document.addEventListener(
     const slides = document.querySelectorAll(
       ".hero-slide",
     );
-    const dots =
-      document.querySelectorAll(".dot");
-    let currentSlideIndex = 0;
-    const slideInterval = 8000; // 8 seconds
+    
+    // GUARD: If no slides, exit slider logic
+    if (slides.length > 0) {
+        const dots = document.querySelectorAll(".dot");
+        let currentSlideIndex = 0;
+        const slideInterval = 8000; // 8 seconds
 
-    function showSlide(index) {
-      // Wrap around
-      if (index >= slides.length) index = 0;
-      if (index < 0) index = slides.length - 1;
+        function showSlide(index) {
+          // Wrap around logic
+          if (index >= slides.length) index = 0;
+          if (index < 0) index = slides.length - 1;
 
-      // Update classes
-      slides.forEach((slide) =>
-        slide.classList.remove("active"),
-      );
-      dots.forEach((dot) =>
-        dot.classList.remove("active"),
-      );
+          // Update slide classes
+          slides.forEach((slide) =>
+            slide.classList.remove("active"),
+          );
+          
+          if (slides[index]) {
+             slides[index].classList.add("active");
+          }
 
-      slides[index].classList.add("active");
-      if (dots[index])
-        dots[index].classList.add("active");
+          // Update dot classes
+          if (dots.length > 0) {
+              dots.forEach((dot) =>
+                dot.classList.remove("active"),
+              );
+              if (dots[index])
+                dots[index].classList.add("active");
+          }
+          currentSlideIndex = index;
+        }
 
-      currentSlideIndex = index;
-    }
-
-    // Auto Play
-    let slideTimer = setInterval(() => {
-      showSlide(currentSlideIndex + 1);
-    }, slideInterval);
-
-    // Manual Control via Dots
-    dots.forEach((dot, index) => {
-      dot.addEventListener("click", () => {
-        clearInterval(slideTimer); // Stop auto play on interaction
-        showSlide(index);
-        // Restart timer
-        slideTimer = setInterval(() => {
+        // Auto Play
+        let slideTimer = setInterval(() => {
           showSlide(currentSlideIndex + 1);
         }, slideInterval);
-      });
-    });
+
+        // Manual Control via Dots
+        if (dots.length > 0) {
+            dots.forEach((dot, index) => {
+              dot.addEventListener("click", () => {
+                clearInterval(slideTimer); 
+                showSlide(index);
+                slideTimer = setInterval(() => {
+                  showSlide(currentSlideIndex + 1);
+                }, slideInterval);
+              });
+            });
+        }
+    }
   }
 );

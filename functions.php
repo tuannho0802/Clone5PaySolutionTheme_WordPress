@@ -123,6 +123,8 @@ function fivepay_register_patterns()
             'slug' => 'fivepay/faq-accordion',
             'file' => 'faq.php'
         ),
+       
+        
     );
 
     foreach ($patterns as $pattern) {
@@ -206,6 +208,7 @@ function fivepay_scripts() {
     wp_enqueue_script('fivepay-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '1.0.0', true);
     wp_enqueue_script('fivepay-animations', get_template_directory_uri() . '/assets/js/animations.js', array(), '1.0.0', true);
     wp_enqueue_script('fivepay-effects', get_template_directory_uri() . '/assets/js/effects.js', array(), '1.0.0', true);
+    wp_enqueue_script('fivepay-blog-filter', get_template_directory_uri() . '/assets/js/blog-filter.js', array(), '1.0.0', true);
 }
 add_action( 'wp_enqueue_scripts', 'fivepay_scripts' );
 

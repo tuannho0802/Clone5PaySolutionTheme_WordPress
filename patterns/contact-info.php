@@ -1,39 +1,34 @@
 <?php
 /**
- * Title: Contact Info Items
- * Slug: fpay/contact-info
- * Categories: fpay-sections
- * Keywords: contact, info, email, telegram
+ * Title: Contact Info Strip
+ * Slug: fivepay/contact-info
+ * Categories: 5pay-contact
+ * Keywords: contact, info, strip
  */
 ?>
-<!-- wp:group {"className":"pxl-contact-info-strip","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center","verticalAlignment":"center"}} -->
-<div class="wp-block-group pxl-contact-info-strip">
-    <!-- wp:group {"className":"pxl-info-item-simple","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
-    <div class="wp-block-group pxl-info-item-simple"><!-- wp:image {"sizeSlug":"full","className":"info-icon-sm"} -->
-        <figure class="wp-block-image size-full info-icon-sm"><img src="https://placehold.co/32x32" alt="Email"
-                style="width:32px;height:32px;" /></figure>
-        <!-- /wp:image --><!-- wp:group {"className":"info-text-group"} -->
-        <div class="wp-block-group info-text-group"><!-- wp:paragraph {"className":"info-label-sm"} -->
-            <p class="info-label-sm">Looking for collaboration?</p>
-            <!-- /wp:paragraph --><!-- wp:paragraph {"className":"info-value-sm"} -->
-            <p class="info-value-sm"><a href="mailto:sales@5paysolution.com">sales@5paysolution.com</a></p>
-            <!-- /wp:paragraph -->
+<div class="pxl-contact-info-strip">
+    <div class="pxl-container">
+        <div class="pxl-info-strip-inner">
+            <!-- Item 1 -->
+            <div class="pxl-info-item-simple">
+                <div class="pxl-info-icon-box">
+                    <i class="flaticon flaticon-envelope"></i>
+                </div>
+                <div class="pxl-info-text">
+                    <span class="pxl-info-label">Looking for collaboration?</span>
+                    <a href="mailto:sales@5paysolution.com" class="pxl-info-value">sales@5paysolution.com</a>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="pxl-info-item-simple">
+                <div class="pxl-info-icon-box">
+                    <i class="fab fa-telegram"></i>
+                </div>
+                <div class="pxl-info-text">
+                    <span class="pxl-info-label">Talk to us</span>
+                    <a href="https://t.me/5pay_support" class="pxl-info-value">Telegram</a>
+                </div>
+            </div>
         </div>
-        <!-- /wp:group -->
     </div>
-    <!-- /wp:group --><!-- wp:group {"className":"pxl-info-item-simple","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
-    <div class="wp-block-group pxl-info-item-simple"><!-- wp:image {"sizeSlug":"full","className":"info-icon-sm"} -->
-        <figure class="wp-block-image size-full info-icon-sm"><img src="https://placehold.co/32x32" alt="Telegram"
-                style="width:32px;height:32px;" /></figure>
-        <!-- /wp:image --><!-- wp:group {"className":"info-text-group"} -->
-        <div class="wp-block-group info-text-group"><!-- wp:paragraph {"className":"info-label-sm"} -->
-            <p class="info-label-sm">Talk to us</p>
-            <!-- /wp:paragraph --><!-- wp:paragraph {"className":"info-value-sm"} -->
-            <p class="info-value-sm"><a href="https://t.me/5paysolution">Telegram</a></p>
-            <!-- /wp:paragraph -->
-        </div>
-        <!-- /wp:group -->
-    </div>
-    <!-- /wp:group -->
 </div>
-<!-- /wp:group -->

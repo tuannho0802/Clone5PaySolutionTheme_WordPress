@@ -185,6 +185,9 @@ function fivepay_scripts() {
     // Google Fonts - Arimo (Primary) & Inter (Secondary)
     wp_enqueue_style('fivepay-google-fonts', 'https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap', array(), null);
 
+    // FontAwesome 6
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', array(), '6.4.0');
+
     // Base Styles
     wp_enqueue_style( 'fivepay-base', get_template_directory_uri() . '/assets/css/base.css', array(), '1.0.0' );
     

@@ -132,15 +132,16 @@
 }
 
 .blog-page-content {
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    will-change: opacity, transform;
 }
 
 .blog-page-content.hidden {
-    display: none !important;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(15px) scale(0.98);
+    pointer-events: none;
 }
 
 /* Pagination Styling */

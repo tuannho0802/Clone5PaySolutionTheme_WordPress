@@ -50,15 +50,45 @@ p {
 }
 
 /* Header */
+/* Header */
 .site-header {
     background-color: var(--color-white);
-    height: 90px; /* Slightly taller for design match */
+    height: 90px;
     display: flex;
     align-items: center;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    position: sticky;
+    position: sticky; /* Reverted to sticky for better layout flow */
     top: 0;
     z-index: 1000;
+    transition: top 0.8s ease-in-out; /* Smooth transition for hide/show */
+}
+
+/* Smart Sticky Header States */
+.site-header.nav-up {
+    top: -90px; /* Hide header (height of header) */
+}
+
+.site-header.nav-down {
+    top: 0; /* Show header */
+}
+
+/* Custom Cursor */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(0, 123, 255, 0.4); /* Primary Blue with opacity */
+    pointer-events: none; /* Ignore mouse events */
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out; /* Smooth follow handled by JS, but this adds base smoothness */
+    filter: blur(4px);
+    will-change: transform;
+    margin-left: -10px; /* Center circle on cursor */
+    margin-top: -10px;
 }
 
 .header-container {
@@ -98,6 +128,16 @@ p {
     color: var(--color-secondary);
 }
 
+/* Header Actions */
+.header-actions {
+    display: block;
+}
+
+.header-actions .btn {
+    padding: 12px 30px; /* Slightly smaller than hero buttons */
+    font-size: 15px;
+}
+
 /* Hamburger Menu */
 .menu-toggle {
     display: none;
@@ -105,7 +145,7 @@ p {
     border: none;
     cursor: pointer;
     padding: 10px;
-    z-index: 1001;
+    z-index: 1002; /* Ensure above nav */
 }
 
 .hamburger-box {
@@ -329,55 +369,161 @@ p {
 }
 
 /* Footer */
+/* Footer */
 .site-footer {
-    background-color: #0a192f; /* Deep Navy */
+    background-color: var(--color-primary);
     color: var(--color-white);
-    padding: var(--spacing-xxl) 0;
-    margin-top: 0; /* Remove top margin if connected to last section */
+    padding: 60px 0 30px;
+    margin-top: auto; /* Sticky Footer Logic */
+}
+
+/* Ensure body allows sticky footer */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr; /* Adjusted for better spacing like design */
-    gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-xl);
+    grid-template-columns: 1.5fr 1.5fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-logo img {
+    max-height: 40px;
+    margin-bottom: 20px;
+}
+
+.footer-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.9;
+    max-width: 300px;
 }
 
 .footer-col h3 {
     color: var(--color-white);
-    font-size: 16px;
-    margin-bottom: var(--spacing-lg);
+    font-size: 14px;
+    margin-bottom: 25px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-weight: 700;
 }
 
-.footer-col ul li {
-    margin-bottom: var(--spacing-sm);
+/* Contact List */
+.contact-list {
+    list-style: none;
+    padding: 0;
 }
 
-.footer-col a {
+.contact-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.contact-icon {
+    background: rgba(255,255,255,0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-info .label {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-bottom: 4px;
+}
+
+.contact-info .value {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Company Links */
+.company-list {
+    list-style: none;
+    padding: 0;
+}
+
+.company-list li {
+    margin-bottom: 12px;
+}
+
+.company-list a {
     color: rgba(255,255,255,0.7);
-    font-size: 14px;
+    font-size: 15px;
+    transition: all 0.3s;
 }
 
-.footer-col a:hover {
-    color: var(--color-white);
+.company-list a:hover {
+    color: #fff;
+    padding-left: 5px;
 }
 
+/* Footer Bottom */
 .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: var(--spacing-lg);
-    text-align: center;
+    padding-top: 30px;
+    text-align: left;
     font-size: 13px;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.5);
+}
+
+/* Scroll To Top */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background: var(--color-primary);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 4px;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    z-index: 999;
+    transition: all 0.8s ease-in-out;
+    opacity: 0;
+    transform: translateY(50px);
+    pointer-events: none;
+}
+
+.scroll-to-top.btn-show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.scroll-to-top.btn-show:hover {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
+    }
+    
+    .header-actions {
+        display: none;
     }
     
     .top-bar { display: none; } /* Hide top bar on mobile usually */

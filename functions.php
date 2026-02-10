@@ -50,6 +50,10 @@ function fivepay_register_patterns()
         '5pay-contact',
         array('label' => __('5Pay Theme - Contact', 'fivepay'))
     );
+    register_block_pattern_category(
+        '5pay-blog',
+        array('label' => __('5Pay Theme - Blog', 'fivepay'))
+    );
 
     // 2. Register Patterns Manually
     $patterns = array(
@@ -57,6 +61,18 @@ function fivepay_register_patterns()
             'title' => __('Hero Section', 'fivepay'),
             'slug' => 'fivepay-v5/hero',
             'file' => 'hero.php'
+        ),
+        'blog-hero' => array(
+            'title' => __('Blog Hero', 'fivepay'),
+            'slug' => 'fivepay/blog-hero',
+            'file' => 'blog-hero.php',
+            'cat' => '5pay-blog'
+        ),
+        'blog-grid' => array(
+            'title' => __('Blog List Grid', 'fivepay'),
+            'slug' => 'fivepay/blog-grid',
+            'file' => 'blog-grid.php',
+            'cat' => '5pay-blog'
         ),
         'contact-hero' => array(
             'title' => __('Contact Hero', 'fivepay'),
@@ -113,6 +129,7 @@ function fivepay_register_patterns()
         $content = file_get_contents(get_template_directory() . '/patterns/' . $pattern['file']);
 
         // Auto-fix: Remove extra whitespaces between block comments and HTML tags to prevent validation errors
+        $content = trim($content);
         $content = preg_replace('/-->\s+</', '--><', $content);
 
         register_block_pattern(
@@ -181,9 +198,13 @@ function fivepay_scripts() {
     // Contact Page Styles
     wp_enqueue_style('fivepay-contact', get_template_directory_uri() . '/assets/css/contact.css', array('fivepay-style'), '1.0.0');
 
+    // Blog Page Styles
+    wp_enqueue_style('fivepay-blog', get_template_directory_uri() . '/assets/css/blog.css', array('fivepay-style'), '1.0.0');
+
     // Scripts
     wp_enqueue_script('fivepay-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '1.0.0', true);
     wp_enqueue_script('fivepay-animations', get_template_directory_uri() . '/assets/js/animations.js', array(), '1.0.0', true);
+    wp_enqueue_script('fivepay-effects', get_template_directory_uri() . '/assets/js/effects.js', array(), '1.0.0', true);
 }
 add_action( 'wp_enqueue_scripts', 'fivepay_scripts' );
 

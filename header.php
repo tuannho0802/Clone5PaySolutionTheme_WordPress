@@ -24,13 +24,15 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                 sales@5paysolution.com
             </a>
-            <a href="#" class="top-link">
+            <a href="https://telegram.me/MY5PAY" class="top-link">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 Telegram
             </a>
         </div>
         <div class="top-bar-right">
-             <!-- Optional: Youtube or other social icons -->
+            <a href="#" class="top-link" aria-label="YouTube">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+            </a>
         </div>
     </div>
 </div>
@@ -39,12 +41,7 @@
     <div class="container header-container">
         <div class="site-branding site-logo">
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="30" font-family="Arial" font-weight="900" font-size="32" fill="#003366">5PAY</text>
-                    <circle cx="95" cy="15" r="3" fill="#007bff"/>
-                    <circle cx="95" cy="25" r="3" fill="#007bff"/>
-                    <circle cx="105" cy="10" r="3" fill="#007bff"/>
-                </svg>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_demo.png" alt="5Pay Solution" width="131" height="40" style="height: 40px; width: auto;">
             </a>
         </div><!-- .site-branding -->
 
@@ -67,9 +64,13 @@
                 <ul>
                     <li><a href="<?php echo home_url('/'); ?>">Home</a></li>
                     <li><a href="#">Blog</a></li>
-                    <li><a href="/contact" class="btn btn-primary btn-sm mobile-cta">Contact Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
                 </ul>
             <?php endif; ?>
         </nav><!-- #site-navigation -->
+
+        <div class="header-actions">
+            <a href="/contact" class="btn btn-primary btn-sm">Contact Us</a>
+        </div>
     </div>
 </header>

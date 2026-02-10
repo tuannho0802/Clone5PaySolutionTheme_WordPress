@@ -63,7 +63,7 @@
             <?php if ( ! has_nav_menu( 'primary' ) ) : ?>
                 <ul>
                     <li><a href="<?php echo home_url('/'); ?>">Home</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="/blog">Blog</a></li>
                     <li><a href="/contact">Contact Us</a></li>
                 </ul>
             <?php endif; ?>

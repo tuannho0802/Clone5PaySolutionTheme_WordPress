@@ -22,7 +22,7 @@ if ( ! function_exists( 'fivepay_setup' ) ) :
         // Add support for editor styles.
         add_theme_support('editor-styles');
         // Enqueue editor styles.
-        add_editor_style('assets/css/editor-style.css');
+        add_editor_style(array('assets/css/editor-style.css', 'assets/css/layout.css', 'assets/css/blog.css'));
 
         // Add support for core block patterns.
         add_theme_support('core-block-patterns');
@@ -200,6 +200,7 @@ function fivepay_scripts() {
 
     // Blog Page Styles
     wp_enqueue_style('fivepay-blog', get_template_directory_uri() . '/assets/css/blog.css', array('fivepay-style'), '1.0.0');
+
 
     // Scripts
     wp_enqueue_script('fivepay-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '1.0.0', true);

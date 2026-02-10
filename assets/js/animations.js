@@ -52,7 +52,7 @@ document.addEventListener(
     const dots =
       document.querySelectorAll(".dot");
     let currentSlideIndex = 0;
-    const slideInterval = 5000; // 5 seconds
+    const slideInterval = 8000; // 8 seconds
 
     function showSlide(index) {
       // Wrap around

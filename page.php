@@ -21,7 +21,7 @@ get_header();
         while ( have_posts() ) :
             the_post();
             ?>
-            <div class="entry-content" style="background: white; padding: 0; max-width: 900px;">
+            <div class="entry-content" style="background: white; padding: 0;">
                 <?php
                 the_content();
 

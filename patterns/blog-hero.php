@@ -1,30 +1,31 @@
 <?php
 /**
- * Title: Blog Hero
- * Slug: fivepay/blog-hero
- * Categories: 5pay-blog
- * Keywords: blog, hero, title
+ * Title: Blog Hero Section
+ * Slug: fpay/blog-hero
+ * Categories: fpay-sections
+ * Keywords: blog, hero, title, header
  */
 ?>
-<!-- wp:group {"className":"blog-hero","layout":{"type":"constrained"}} -->
-<div class="wp-block-group blog-hero">
-    <!-- wp:cover {"url":"https://5paysolution.com/wp-content/uploads/2025/09/banner-blog.jpg","dimRatio":50,"overlayColor":"black","minHeight":300,"minHeightUnit":"px","contentPosition":"center center","align":"full"} -->
-    <div class="wp-block-cover alignfull has-black-background-color has-background-dim" style="min-height:300px">
-        <span aria-hidden="true" class="wp-block-cover__background has-background-dim-50 wp-block-cover__gradient-background has-background-dim"></span>
-        <img class="wp-block-cover__image-background" alt="" src="https://5paysolution.com/wp-content/uploads/2025/09/banner-blog.jpg" data-object-fit="cover"/>
-        
-        <!-- wp:group {"layout":{"type":"constrained"}} -->
-        <div class="wp-block-group">
-            <!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"textTransform":"uppercase","fontSize":"48px"}},"textColor":"white"} -->
-            <h1 class="wp-block-heading has-text-align-center has-white-color has-text-color" style="font-size:48px;text-transform:uppercase">Blog</h1>
+<!-- wp:cover {"url":"https://placehold.co/1920x600/020c1b/ffffff","dimRatio":60,"overlayColor":"black","align":"full","minHeight":400,"minHeightUnit":"px","className":"blog-hero-banner","layout":{"type":"constrained"}} -->
+<div class="wp-block-cover alignfull blog-hero-banner has-black-background-color has-background-dim-60 has-background-dim" style="min-height:400px"><span aria-hidden="true" class="wp-block-cover__background has-black-background-color has-background-dim-60 has-background-dim"></span><img class="wp-block-cover__image-background" src="https://placehold.co/1920x600/020c1b/ffffff" alt="Blog Hero Background" data-object-fit="cover"/>
+    <div class="wp-block-cover__inner-container">
+        <!-- wp:group {"className":"blog-hero-content animate-on-scroll","layout":{"type":"constrained"}} -->
+        <div class="wp-block-group blog-hero-content animate-on-scroll">
+            <!-- wp:heading {"textAlign":"center","level":1,"className":"blog-hero-title mb-4"} -->
+            <h1 class="wp-block-heading has-text-align-center blog-hero-title mb-4" style="color:#ffffff;font-size:56px;font-weight:800;line-height:1.1">Our Latest News</h1>
             <!-- /wp:heading -->
+            
+            <!-- wp:paragraph {"align":"center","className":"blog-hero-desc mb-4","style":{"typography":{"fontSize":"20px"}}} -->
+            <p class="has-text-align-center blog-hero-desc mb-4" style="color:#e0e0e0;font-size:20px">Insights and updates from the world of payments and fintech.</p>
+            <!-- /wp:paragraph -->
 
             <!-- wp:paragraph {"align":"center","className":"blog-breadcrumb"} -->
-            <p class="has-text-align-center blog-breadcrumb"><a href="/">Home</a> &gt; Blog</p>
+            <p class="has-text-align-center blog-breadcrumb" style="color:#cccccc;font-size:14px;letter-spacing:1px;text-transform:uppercase">
+                <a href="/" style="color:#ffffff;text-decoration:none">Home</a> <span style="margin:0 10px">•</span> <span style="color:#007bff;font-weight:700">Blog</span>
+            </p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:group -->
     </div>
-    <!-- /wp:cover -->
 </div>
-<!-- /wp:group -->
+<!-- /wp:cover -->
